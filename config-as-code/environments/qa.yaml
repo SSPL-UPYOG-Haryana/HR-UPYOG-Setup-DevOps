@@ -17,7 +17,7 @@ cluster-configs:
         db-host: ec2-13-204-21-213.ap-south-1.compute.amazonaws.com:5432 #43.239.78.2:5432 ## Add db-host name eg: upyog-demo.database.azure.com
         db-name: hrupyog ## Add db-name
         db-url: jdbc:postgresql://ec2-13-204-21-213.ap-south-1.compute.amazonaws.com:5432/hrupyog ## example: jdbc:postgresql://upyog-demo.postgres.database.azure.com:5432/egov_demo
-        erp-db-url: jdbc:postgresql://ec2-13-204-21-213.ap-south-1.compute.amazonaws.com:5432/hrupyogfinance
+        erp-db-url: jdbc:postgresql://ec2-13-204-21-213.ap-south-1.compute.amazonaws.com:5432/hrfinance
         domain: dev-hrupyog.sparrowsoftech.in ## Add your Domain Name    
         egov-services-fqdn-name: https://dev-hrupyog.sparrowsoftech.in/ ## Add your Domain Name
         egov-state-level-tenant-id: "hr"
@@ -796,6 +796,8 @@ financeTenants: |
   tenant.sampla-dev-hrupyog.sparrowsoftech.in=sampla
   tenant.sohna-dev-hrupyog.sparrowsoftech.in=sohna
   tenant.pataudi-dev-hrupyog.sparrowsoftech.in=pataudi
+  tenant.palwal-dev-hrupyog.sparrowsoftech.in=palwal
+  tenant.hathin-dev-hrupyog.sparrowsoftech.in=hathin
   
   tenant.gurugram-dev-hrupyog.sparrowsoftech.in=gurugram
   #tenant.cityd-dev-hrupyog.sparrowsoftech.in=cityd
@@ -810,9 +812,9 @@ egov-finance:
   heap: -Xmx512m -Xms512m
   resources: # <--- This is the standard K8s resources block
     limits:
-      memory: "3Gi"
+      memory: "4Gi"
     requests:
-      memory: "3Gi"
+      memory: "4Gi"
   microservice: |
     egov.default.services.endpoint=https://dev-hrupyog.sparrowsoftech.in/
     egov.collection.version={{ index .Values "collection-version" }}
